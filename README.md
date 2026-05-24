@@ -4,4 +4,4 @@ Tool grid view che analizza PcaAppLaunchDic.txt segnando Path, Timestamp e Signa
 # Come eseguire il tool:
 CMD (admin):
 ```
-powershell -command "irm 'https://raw.githubusercontent.com/sandydll-bs/PCA-Viewer/main/PCA-Viewer.ps1' | iex"
+powershell -ExecutionPolicy Bypass -Command "& { $p = \"$env:TEMP\PCA-Viewer.ps1\"; iwr 'https://raw.githubusercontent.com/sandydll-bs/PCA-Viewer/main/PCA-Viewer.ps1' -OutFile $p; Start-Process powershell -Verb RunAs -ArgumentList @('-NoExit','-ExecutionPolicy','Bypass','-File',$p) }"
